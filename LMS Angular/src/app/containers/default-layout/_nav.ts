@@ -31,6 +31,9 @@ export const adminNavItems: INavData[] = [
       text: 'NEW',
     },
   },
+
+  // <a routerLinkActive="active" routerLink="/employees-list">View Employees</a>
+  //<a routerLinkActive="active" routerLink="/create-employee">Add Employee</a>
   {
     name: 'Rebots',
     url: '/book/books',
@@ -40,6 +43,28 @@ export const adminNavItems: INavData[] = [
       text: 'NEW',
     },
   },
+
+  {
+    name: 'RebotsEmpl',
+    url: '/employees-list',
+    iconComponent: { name: 'cil-spreadsheet' },
+    badge: {
+      color: 'info',
+      text: 'NEW',
+    },
+  },
+
+  {
+    name: 'CreateEmployee',
+    url: '/create-employees',
+    iconComponent: { name: 'cil-spreadsheet' },
+    badge: {
+      color: 'info',
+      text: 'NEW',
+    },
+  },
+
+
   {
     name: 'Planification',
     url: '/issues/issuebooks',

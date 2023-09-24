@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisterService } from './register.service';
 import {
@@ -12,7 +12,17 @@ import {
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
+
+ 
+
+  ngOnInit(): void {
+    this.checkadmin()
+  }
+
+  
+
+  ifadmin  :boolean = true;
   myForm: FormGroup;
   successMessage = '';
   constructor(private myservice: RegisterService, private router: Router) {
@@ -37,7 +47,14 @@ export class RegisterComponent {
       this.myForm.controls[controlName].touched
     );
   }
-
+  checkadmin(){
+    if(this.ifadmin==false)
+    this.router.navigate(['/login']);
+  }
+  tggleAdmin(){
+      this.ifadmin =!this.ifadmin;
+      this.router.navigate(['/login']);
+  }
   passValidator(control: AbstractControl) {
     if (control && (control.value !== null || control.value !== undefined)) {
       const cnfpassValue = control.value;

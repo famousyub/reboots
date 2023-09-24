@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +29,7 @@ import {
   AvatarModule,
   BadgeModule,
   BreadcrumbModule,
+
   ButtonGroupModule,
   ButtonModule,
   CardModule,
@@ -71,6 +72,10 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 // import { EditissueService } from './views/issues/editissue/editissue.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EmployeeCreateComponent } from './components/employee-create/employee-create.component';
+import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { ApiService } from './service/api.service';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
 };
@@ -82,13 +87,19 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, ProfileComponent],
+  declarations: [AppComponent, ...APP_CONTAINERS, ProfileComponent, EmployeeCreateComponent, EmployeeEditComponent, EmployeeListComponent],
+  exports:[
+    EmployeeCreateComponent, EmployeeEditComponent, EmployeeListComponent
+  ],
+
+ 
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AvatarModule,
     BreadcrumbModule,
+    ReactiveFormsModule,
     FooterModule,
     DropdownModule,
     GridModule,
@@ -143,6 +154,7 @@ const APP_CONTAINERS = [
     AddmultiplebooksService,
     AddbookService, 
     EditbookService,
+    ApiService,
     // EditissueService,
     AddissueService,
     DefaultHeaderService,

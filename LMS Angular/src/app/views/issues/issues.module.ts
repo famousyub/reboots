@@ -14,6 +14,7 @@ import { UpdateissueComponent } from './updateissue/updateissue.component';
 import { AddissueComponent } from './addissue/addissue.component';
 import { IssuebooksComponent } from './issuebooks/issuebooks.component';
 import { IssuesRoutingModule } from './issues-routing.module';
+import { AppModule } from 'src/app/app.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { IssuesRoutingModule } from './issues-routing.module';
     IssuebooksComponent,
   ],
   imports: [
+    AppModule,
     CommonModule,
     CardModule,
     ButtonModule,

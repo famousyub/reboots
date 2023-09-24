@@ -7,6 +7,9 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { AdminloginComponent } from './views/pages/adminlogin/adminlogin.component';
 import { AdminregisterComponent } from './views/pages/adminregister/adminregister.component';
 import { AuthGuard } from './auth.guard';
+import { EmployeeCreateComponent } from './components/employee-create/employee-create.component';
+import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 
 const routes: Routes = [
   {
@@ -28,6 +31,11 @@ const routes: Routes = [
             (m) => m.DashboardModule
           ),
       },
+
+      { path: 'create-employees', component: EmployeeCreateComponent },
+      { path: 'edit-employee/:id', component: EmployeeEditComponent },
+      { path: 'employees-list', component: EmployeeListComponent }  ,
+
       {
         path: 'profile',
         canActivate: [AuthGuard],
@@ -105,6 +113,11 @@ const routes: Routes = [
     },
   },
   { path: '**', redirectTo: 'dashboard' },
+
+  
+  { path: 'create-employee', component: EmployeeCreateComponent },
+  { path: 'edit-employee/:id', component: EmployeeEditComponent },
+  { path: 'employees-list', component: EmployeeListComponent }  
 ];
 
 @NgModule({

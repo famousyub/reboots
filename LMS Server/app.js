@@ -22,6 +22,8 @@ const librarianRoute = require("./routes/librarian.route");
 const bookRoute = require("./routes/rebot.route");
 const issueBookRoute = require("./routes/issuebook.route");
 
+const  rebotemplRoute = require("./routes/emprebot.route");
+
 app.use(cors({ credentials: true, origin: "http://localhost:4200" }));
 app.use("/api/usersauth/", userauthRoute);
 app.use("/api/adminsauth/", adminauthRoute);
@@ -31,6 +33,7 @@ app.use("/api/books/", bookRoute);
 app.use("/api/issuebooks/", issueBookRoute);
 app.use("/api/librarians/", librarianRoute);
 
+app.use("/api/emprebot",rebotemplRoute);
 app.get("/", (req, res) => {
   res.send("Inside home");
 });
